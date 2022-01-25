@@ -1,10 +1,16 @@
-export default function Numbers() {
-  const numberArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
+export default function Numbers(props) {
   return (
     <>
-      {numberArray.map((item) => (
-        <button type='button'>{item}</button>
+      {props.numberArray.map((item, idx) => (
+        <td key={idx} colSpan={props.numberArray.length === 1 ? '2' : '1'}>
+          <button
+            type='button'
+            className='numbers'
+            onClick={() => props.setValue((c) => item)}
+          >
+            {item}
+          </button>
+        </td>
       ))}
     </>
   )

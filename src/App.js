@@ -1,18 +1,19 @@
 import './App.css'
 import Calculator from './components/Calculator'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
-  const [calculation, setCalculation] = useState({
-    firstvalue: 0,
-    secondvalue: 0,
-    operator: '',
-    finalvalue: 0
-  })
+  const [calculation, setCalculation] = useState('')
+
+  const [value, setValue] = useState('')
+
+  useEffect(() => {
+    setCalculation((currentvalue) => currentvalue + value)
+  }, [value])
 
   return (
     <div className='App'>
-      <Calculator calculation={calculation} setCalculation={setCalculation} />
+      <Calculator calculation={calculation} setValue={setValue} />
     </div>
   )
 }
