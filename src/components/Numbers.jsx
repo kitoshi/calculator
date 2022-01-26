@@ -7,6 +7,7 @@ export default function Numbers(props) {
             type='button'
             className='numbers'
             onClick={() => props.setValue(() => item)}
+            style={{ backgroundColor: '#939799' }}
           >
             {item}
           </button>

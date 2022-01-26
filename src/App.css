@@ -1,16 +1,43 @@
+* {
+  color: white;
+  font-size: large;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+table,
+th,
+td {
+  border: none;
 }
 
 table {
-  display: flex;
-  flex-direction: column;
-  height: 50vh;
-  width: 10vw;
+  height: 500px;
+  width: 300px;
+}
+
+thead {
+  width: 100%;
+  height: 25%;
+}
+
+tbody {
+  width: 100%;
+  height: 75%;
+}
+
+tr {
+  width: 100%;
+  height: 20%;
 }
 
 td {
   padding: 0;
+  width: 25%;
 }
 
 button {
@@ -18,16 +45,4 @@ button {
   height: 100%;
   padding: 0%;
   border: none;
-}
-
-thead {
-  width: 100%;
-}
-
-tbody {
-  width: 100%;
-}
-
-tr {
-  width: 100%;
 }

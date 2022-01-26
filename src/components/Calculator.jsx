@@ -7,22 +7,53 @@ export default function Calculator(props) {
       <table>
         <thead>
           <tr>
-            <th>{props.numberInput === '' ? '0' : props.numberInput}</th>
+            <th
+              colSpan={'4'}
+              style={{
+                backgroundColor: '#505050',
+                width: '100%',
+                textAlign: 'right',
+                paddingRight: '5%',
+                fontSize: 'x-large'
+              }}
+            >
+              {props.numberInput === '' ? '0' : props.numberInput}
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <button onClick={props.clearNumbers}>AC</button>
+              <button
+                onClick={props.clearNumbers}
+                style={{ backgroundColor: '#505050' }}
+              >
+                AC
+              </button>
             </td>
             <td>
-              <button onClick={props.signChange}>+/-</button>
+              <button
+                onClick={props.signChange}
+                style={{ backgroundColor: '#505050' }}
+              >
+                +/-
+              </button>
             </td>
             <td>
-              <button onClick={props.percentNumberInput}>%</button>
+              <button
+                onClick={props.percentNumberInput}
+                style={{ backgroundColor: '#505050' }}
+              >
+                %
+              </button>
             </td>
             <td>
-              <button onClick={() => props.operatorSelect('/')}>÷</button>
+              <button
+                onClick={() => props.operatorSelect('/')}
+                style={{ backgroundColor: 'orange' }}
+              >
+                ÷
+              </button>
             </td>
           </tr>
           <tr>
@@ -31,7 +62,12 @@ export default function Calculator(props) {
               setValue={props.setValue}
             />
             <td>
-              <button onClick={() => props.operatorSelect('*')}>x</button>
+              <button
+                onClick={() => props.operatorSelect('*')}
+                style={{ backgroundColor: 'orange' }}
+              >
+                x
+              </button>
             </td>
           </tr>
           <tr>
@@ -40,7 +76,12 @@ export default function Calculator(props) {
               setValue={props.setValue}
             />
             <td>
-              <button onClick={() => props.operatorSelect('-')}>-</button>
+              <button
+                onClick={() => props.operatorSelect('-')}
+                style={{ backgroundColor: 'orange' }}
+              >
+                -
+              </button>
             </td>
           </tr>
           <tr>
@@ -49,7 +90,12 @@ export default function Calculator(props) {
               setValue={props.setValue}
             />
             <td>
-              <button onClick={() => props.operatorSelect('+')}>+</button>
+              <button
+                onClick={() => props.operatorSelect('+')}
+                style={{ backgroundColor: 'orange' }}
+              >
+                +
+              </button>
             </td>
           </tr>
           <tr>
@@ -58,10 +104,20 @@ export default function Calculator(props) {
               setValue={props.setValue}
             />
             <td>
-              <button onClick={props.decimalNumberInput}>.</button>
+              <button
+                onClick={props.decimalNumberInput}
+                style={{ backgroundColor: '#939799' }}
+              >
+                .
+              </button>
             </td>
             <td>
-              <button onClick={props.evaluateCalculation}>=</button>
+              <button
+                onClick={props.evaluateCalculation}
+                style={{ backgroundColor: 'orange' }}
+              >
+                =
+              </button>
             </td>
           </tr>
         </tbody>
