@@ -6,7 +6,7 @@ export default function Numbers(props) {
           <button
             type='button'
             className='numbers'
-            onClick={() => props.setValue((c) => item)}
+            onClick={() => props.setValue(() => item)}
           >
             {item}
           </button>

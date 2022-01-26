@@ -7,22 +7,23 @@ export default function Calculator(props) {
       <table>
         <thead>
           <tr>
-            <th>{props.calculation === '' ? '0' : props.calculation}</th>
+            <th>{props.sign}</th>
+            <th>{props.numberInput === '' ? '0' : props.numberInput}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <button>AC</button>
+              <button onClick={props.clearNumbers}>AC</button>
             </td>
             <td>
-              <button>+/-</button>
+              <button onClick={props.signChange}>+/-</button>
             </td>
             <td>
-              <button>%</button>
+              <button onClick={props.percentNumberInput}>%</button>
             </td>
             <td>
-              <button>÷</button>
+              <button onClick={() => props.operatorSelect('/')}>÷</button>
             </td>
           </tr>
           <tr>
@@ -31,7 +32,7 @@ export default function Calculator(props) {
               setValue={props.setValue}
             />
             <td>
-              <button>x</button>
+              <button onClick={() => props.operatorSelect('*')}>x</button>
             </td>
           </tr>
           <tr>
@@ -40,7 +41,7 @@ export default function Calculator(props) {
               setValue={props.setValue}
             />
             <td>
-              <button>-</button>
+              <button onClick={() => props.operatorSelect('-')}>-</button>
             </td>
           </tr>
           <tr>
@@ -49,7 +50,7 @@ export default function Calculator(props) {
               setValue={props.setValue}
             />
             <td>
-              <button>+</button>
+              <button onClick={() => props.operatorSelect('+')}>+</button>
             </td>
           </tr>
           <tr>
@@ -58,10 +59,10 @@ export default function Calculator(props) {
               setValue={props.setValue}
             />
             <td>
-              <button>.</button>
+              <button onClick={props.decimalNumberInput}>.</button>
             </td>
             <td>
-              <button>=</button>
+              <button onClick={props.evaluateCalculation}>=</button>
             </td>
           </tr>
         </tbody>
