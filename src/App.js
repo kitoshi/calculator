@@ -6,7 +6,6 @@ function App() {
   const [numberInput, setNumberInput] = useState('')
   const [value, setValue] = useState('')
   const [sign, setSign] = useState('')
-  const [mathoperation, setOperator] = useState('')
   const [calculation, setCalculation] = useState('')
 
   useEffect(() => {
@@ -19,7 +18,6 @@ function App() {
     setNumberInput('')
     setValue('')
     setSign('')
-    setOperator('')
     setCalculation('')
   }
 
@@ -43,7 +41,6 @@ function App() {
 
   //operators
   function operatorSelect(val) {
-    setOperator(val)
     setCalculation((prevValue) => prevValue + val + sign + numberInput)
     setNumberInput(() => '')
     setSign(() => '')
@@ -54,12 +51,10 @@ function App() {
     if (sign === '-') {
       setNumberInput((prevValue) => eval(-prevValue + calculation))
       setSign('')
-      setOperator('')
       setCalculation('')
     } else {
       setNumberInput((prevValue) => eval(prevValue + calculation))
       setSign('')
-      setOperator('')
       setCalculation('')
     }
   }
