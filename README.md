@@ -4,14 +4,11 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/kitoshi/calculator">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Calculator in React!</h3>
@@ -76,7 +73,6 @@ A simple calculator built with React functional components. Basic hooks used: us
 
 ## Getting Started
 
-
 To get a local copy up and running follow these simple example steps:
 
 ### Prerequisites
@@ -107,6 +103,7 @@ To get a local copy up and running follow these simple example steps:
    ```sh
    npm start
    ```
+2. Click buttons to calculate.
 
 It will help with your math homework.
 
@@ -160,16 +157,6 @@ Project Link: [https://github.com/kitoshi/calculator](https://github.com/kitoshi
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-- []()
-- []()
-- []()
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
@@ -185,4 +172,4 @@ Project Link: [https://github.com/kitoshi/calculator](https://github.com/kitoshi
 [license-url]: https://github.com/kitoshi/calculator/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: https://github.com/kitoshi/calculator/blob/master/screenshots/calculator.png
