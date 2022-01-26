@@ -41,15 +41,22 @@ function App() {
 
   //operators
   function operatorSelect(val) {
-    setCalculation((prevValue) => prevValue + val + sign + numberInput)
-    setNumberInput(() => '')
-    setSign(() => '')
+    if (val === '-' && sign === '-') {
+      //double negative
+      setCalculation((prevValue) => prevValue + '+' + numberInput)
+      setNumberInput(() => '')
+      setSign(() => '')
+    } else {
+      setCalculation((prevValue) => prevValue + val + sign + numberInput)
+      setNumberInput(() => '')
+      setSign(() => '')
+    }
   }
 
   //equals
   function evaluateCalculation() {
     if (sign === '-') {
-      setNumberInput((prevValue) => eval(-prevValue + calculation))
+      setNumberInput((prevValue) => eval('-' + prevValue + calculation))
       setSign('')
       setCalculation('')
     } else {
