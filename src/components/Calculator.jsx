@@ -14,7 +14,7 @@ export default function Calculator(props) {
                 width: '100%',
                 textAlign: 'right',
                 paddingRight: '5%',
-                fontSize: 'x-large'
+                fontSize: 'xx-large'
               }}
             >
               {props.numberInput === '' ? '0' : props.numberInput}
