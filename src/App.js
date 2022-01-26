@@ -46,7 +46,8 @@ function App() {
 
   //operators
   function operatorSelect(val) {
-    if (numberInput === '') {
+    if ((numberInput === '') | (/^0+$/.test(numberInput) === true)) {
+      //eval cannot take all zeroes
       return null
     } else if (val === '-' && numberInput.includes('-') === true) {
       //double negative
@@ -69,7 +70,8 @@ function App() {
 
   //equals
   function evaluateCalculation() {
-    if (numberInput === '') {
+    if ((numberInput === '') | (/^0+$/.test(numberInput) === true)) {
+      //eval cannot take all zeroes
       return null
     } else if (
       //double negative
