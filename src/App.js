@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 function App() {
   const [numberInput, setNumberInput] = useState('')
   const [value, setValue] = useState('')
-  const [sign, setSign] = useState('')
   const [calculation, setCalculation] = useState('')
 
   useEffect(() => {
@@ -17,51 +16,81 @@ function App() {
   function clearNumbers() {
     setNumberInput('')
     setValue('')
-    setSign('')
     setCalculation('')
   }
 
   //+or-
   function signChange() {
-    if (sign === '') {
-      setSign('-')
-    } else if (sign === '-') {
-      setSign('')
+    if (numberInput === '') {
+      return null
+    } else if (numberInput.includes('-') === false) {
+      setNumberInput((prevValue) => '-' + prevValue)
     } else {
+      setNumberInput((prevValue) => prevValue.replace(/-/, ''))
     }
   }
   //%
   function percentNumberInput() {
+    if (numberInput === '') {
+      return null
+    }
     setNumberInput((current) => parseFloat(current) / 100)
   }
   //decimal
   function decimalNumberInput() {
+    if (numberInput === '') {
+      return null
+    }
     setNumberInput((current) => current + '.')
   }
 
   //operators
   function operatorSelect(val) {
-    if (val === '-' && sign === '-') {
+    if (numberInput === '') {
+      return null
+    } else if (val === '-' && numberInput.includes('-') === true) {
       //double negative
-      setCalculation((prevValue) => prevValue + '+' + numberInput)
+      setCalculation(
+        (prevValue) =>
+          //eval cannot take leading zeroes
+          prevValue +
+          val +
+          numberInput.replace(/-/, '').replace(/^0+/ | /^-0+/, '')
+      )
       setNumberInput(() => '')
-      setSign(() => '')
     } else {
-      setCalculation((prevValue) => prevValue + val + sign + numberInput)
+      setCalculation(
+        //eval cannot take leading zeroes
+        (prevValue) => numberInput.replace(/^0+/, '') + val + prevValue
+      )
       setNumberInput(() => '')
-      setSign(() => '')
     }
   }
 
   //equals
   function evaluateCalculation() {
-    if (sign === '-') {
-      setNumberInput((prevValue) => eval('-' + prevValue + calculation))
-      setSign('')
+    if (numberInput === '') {
+      return null
+    } else if (
+      //double negative
+      numberInput.includes('-') === true &&
+      calculation.endsWith('-')
+    ) {
+      setNumberInput((prevValue) =>
+        eval(
+          //eval cannot take leading zeroes
+          calculation.replace(/^0+/, '') +
+            prevValue.replace(/-/, '').replace(/^0+/, '')
+        ).toString()
+      )
       setCalculation('')
     } else {
-      setNumberInput((prevValue) => eval(prevValue + calculation))
-      setSign('')
+      setNumberInput((prevValue) =>
+        eval(
+          //eval cannot take leading zeroes
+          calculation.replace(/^0+/, '') + prevValue.replace(/^0+/, '')
+        ).toString()
+      )
       setCalculation('')
     }
   }
@@ -77,7 +106,6 @@ function App() {
         percentNumberInput={percentNumberInput}
         decimalNumberInput={decimalNumberInput}
         evaluateCalculation={evaluateCalculation}
-        sign={sign}
       />
     </div>
   )

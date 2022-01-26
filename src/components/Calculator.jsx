@@ -7,7 +7,6 @@ export default function Calculator(props) {
       <table>
         <thead>
           <tr>
-            <th>{props.sign}</th>
             <th>{props.numberInput === '' ? '0' : props.numberInput}</th>
           </tr>
         </thead>
