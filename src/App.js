@@ -40,6 +40,8 @@ function App() {
   function decimalNumberInput() {
     if (numberInput === '') {
       return null
+    } else if (numberInput.includes('.') === true) {
+      return null
     }
     setNumberInput((current) => current + '.')
   }
