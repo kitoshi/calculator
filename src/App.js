@@ -38,6 +38,7 @@ function App() {
   }
   //decimal
   function decimalNumberInput() {
+    //one decimal only
     if (numberInput === '') {
       return null
     } else if (numberInput.includes('.') === true) {
@@ -73,7 +74,6 @@ function App() {
   //equals
   function evaluateCalculation() {
     if ((numberInput === '') | (/^0+$/.test(numberInput) === true)) {
-      //eval cannot take all zeroes
       return null
     } else if (
       //double negative
@@ -82,7 +82,6 @@ function App() {
     ) {
       setNumberInput((prevValue) =>
         eval(
-          //eval cannot take leading zeroes
           calculation.replace(/^0+/, '') +
             prevValue.replace(/-/, '').replace(/^0+/, '')
         ).toString()
@@ -91,7 +90,6 @@ function App() {
     } else {
       setNumberInput((prevValue) =>
         eval(
-          //eval cannot take leading zeroes
           calculation.replace(/^0+/, '') + prevValue.replace(/^0+/, '')
         ).toString()
       )
